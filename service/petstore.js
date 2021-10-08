@@ -243,11 +243,11 @@ async function createOrder (req, res) {
 
     // Retrieve store order
 async function findOrder (req, res) {
-    if(this.isNumber(req.params.id)) {
+    if(this.isNumber(req.params.orderId)) {
         const params = {
             TableName: orderTable,
             Key: {
-                id: parseInt(req.params.id)
+                id: parseInt(req.params.orderId)
             }
         }
         // get pet from the database
@@ -266,12 +266,12 @@ async function findOrder (req, res) {
 
     // Delete an order
 function deleteOrder (req, res) {
-    if(isNumber(req.params.id)) {
+    if(isNumber(req.params.orderId)) {
         // delete from db
         const params = {
             TableName: orderTable,
             Key: {
-                id: parseInt(req.params.id)
+                id: parseInt(req.params.orderId)
             }
         }
         dynamo.delete(params), (err, data) => {

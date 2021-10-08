@@ -24,11 +24,11 @@ app.get('/', (req, res) => {
 });
 
 // using as middleware
-app.use('/petstore', router)
+app.use('/', router)
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
- });
+// app.listen(3000, function () {
+//   console.log('Example app listening on port 3000!');
+//  });
 
 module.exports = app
 
