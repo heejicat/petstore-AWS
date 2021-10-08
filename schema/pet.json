@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "id": "https://328dxb8xr9.execute-api.us-east-1.amazonaws.com/dev/petstore/schema/pet.json",
+    "$async": true,
+    "type": "object",
+    "definitions": {
+        "pet": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": { "type": "integer" },
+                "category": { "$ref": "#/definitions/Category" },
+                "name": { "type": "string" },
+                "photoUrls": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/Category" }
+                },
+                "status": { "type": "string" }
+            },
+            "required": [ "id", "name", "photoUrls" ]
+        },
+        "Category": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": { "type": "integer" },
+                "name": { "type": "string" }
+            },
+            "required": [ "id", "name" ]
+        }
+    },
+    "properties": {
+        "pet": { "ref": "#/definitions/pet" }
+    }
+}
